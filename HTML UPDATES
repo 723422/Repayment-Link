@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate URL</title>
+</head>
+<body>
+    <form id="linkForm">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" name="amntInput"><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="nameInput"><br><br>
+        <label for="vpa">VPA:</label>
+        <input type="text" id="vpa" name="vpaInput"><br><br>
+        <button type="button" onclick="generateLink()">Generate Link</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function generateLink() {
+            const baseUrl = "https://723422.github.io/Repayment-Link/index%20(1).html";
+            const params = new URLSearchParams({
+                amntInput: document.getElementById('amount').value,
+                nameInput: document.getElementById('name').value,
+                vpaInput: document.getElementById('vpa').value
+            });
+            const fullUrl = `${baseUrl}?${params.toString()}`;
+            document.getElementById('result').innerHTML = `<a href="${fullUrl}">${fullUrl}</a>`;
+        }
+    </script>
+</body>
+</html>
